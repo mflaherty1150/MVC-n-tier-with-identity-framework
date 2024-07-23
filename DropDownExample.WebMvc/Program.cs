@@ -2,6 +2,9 @@ using DropDownExample.Data;
 using DropDownExample.Data.Entities;
 using DropDownExample.Services.User;
 using Microsoft.EntityFrameworkCore;
+using DropDownExample.Services.Movie;
+using DropDownExample.Services.Genre;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IGenreService, GenreService>();
 
 builder.Services.AddDefaultIdentity<UserEntity>()
     .AddEntityFrameworkStores<ApplicationDbContext>();

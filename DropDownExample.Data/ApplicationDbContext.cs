@@ -10,6 +10,9 @@ public class ApplicationDbContext : IdentityDbContext<UserEntity, IdentityRole<i
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) { }
 
+    public DbSet<MovieEntity> Movies { get; set; }
+    public DbSet<GenreEntity> Genres { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
